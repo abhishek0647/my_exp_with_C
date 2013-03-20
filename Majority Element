@@ -1,0 +1,62 @@
+//
+//  
+//Majority Element
+
+//Majority Element: A majority element in an array A[] of size n is an element that appears more than n/2 times
+//(and hence there is at most one such element).
+
+//Write a function which takes an array and emits the majority element (if it exists), otherwise prints NONE as follows:
+//
+// I/P : 3 3 4 2 4 4 2 4 4
+//       O/P : 4 
+//
+//       I/P : 3 3 4 2 4 4 2 4
+//       O/P : NONE	
+
+// time complexity is O(n*n)
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int n,k; 	//input for size of the array
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n]; 	//declaration of the array
+	printf("\nEnter the elements of the array\n");
+	for(k=0;k<n;k++)
+		scanf("%d",&a[k]); 	//receiving array elements at run time
+	int i,j; 	//loop variables
+	int cnt=1;
+	for(i=0;i<n-1;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i] == a[j])
+			{
+				cnt++;	
+			}
+		}
+		if(cnt > n/2)
+		{
+			printf("\n Element %d occurs max number of times (more than n/2 times)\n",a[i]);
+			return 1;
+		}
+		else
+			cnt = 1;
+	}
+	printf("\nNone\n");
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
