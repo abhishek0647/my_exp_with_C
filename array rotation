@@ -1,0 +1,41 @@
+//  
+//Program for array rotation
+//
+
+//Write a function rotate(ar[], d, n) that rotates arr[] of size n by d elements.
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int d,i,j,n;
+	int a[50];
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	
+	printf("\nEnter the elements of the array\n");
+	for (i=0;i<n;i++)
+		scanf("%d",&a[i]);
+		
+	printf("\nEnter the number of rotations to be performed\n");
+	scanf("%d",&d);
+	int temp;
+	
+	for(i=0;i<d;i++)
+	{
+		temp = a[0];
+		for(j=1;j<n;j++)
+		{
+			a[j-1] = a[j] ;
+		}	
+		a[n-1] = temp;
+	}
+	
+	printf("\nThe rotated array is\n");
+	for(i=0;i<n;i++)
+		printf("%d",a[i]);
+		
+	return 0;
+}
