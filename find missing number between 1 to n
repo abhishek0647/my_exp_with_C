@@ -1,0 +1,35 @@
+//  
+//Find the Missing Number
+//June 22, 2009
+
+//You are given a list of n-1 integers and these integers are in the range of 1 to n.
+//There are no duplicates in list.
+//One of the integers is missing in the list.
+//Write an efficient code to find the missing integer.
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int n,sum = 0;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	
+	int a[n];
+	int i;
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+		sum += a[i];
+	}
+	
+	int missing_number;
+	missing_number = (((n+1)*(n+2))/2) - sum;
+	
+	printf("\nThe missing number is %d\n",missing_number);
+	
+	return 0;
+}
