@@ -1,0 +1,39 @@
+//  
+//Largest Sum Contiguous Subarray
+//
+
+//Write an efficient C program to find the sum of contiguous subarray within a one-dimensional array of numbers which has the largest sum.
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int a[50];
+	int n,i;
+	
+	printf("\nEnter the size of the array\n");  //accepting the size of the array
+	scanf("%d",&n);
+	
+	printf("\nEnter the elements of the array\n");		//accepting the elements of the array
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	
+	int max_so_far = 0, max_ends_here = 0;
+	
+	for(i=0;i<n;i++)		//calculation of the largest continguous sum in the array
+	{
+		max_ends_here += a[i];		//updating the value of max_ends_here
+		
+		if(max_ends_here < 0)		//checking if max_ends_here is negative
+			max_ends_here = 0;
+		
+		if(max_so_far < max_ends_here)		//updating the value of max_so_far if its greater than max_so_far
+			max_so_far = max_ends_here;
+	}
+	
+	printf("\nThe largest sum of continguous subarray is %d\n",max_so_far);		//printing the largest continguous sum
+	return 0;
+	
+}
