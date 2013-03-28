@@ -1,0 +1,47 @@
+//
+//Given an array of 2n elements of which n elements are same and the remaining n elements are all different.
+//Write a C program to find out the value which is present n times in the array.
+//There is no restriction on the elements in the array.
+//They are random (In particular they not sequential).
+//
+
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+  int n,k; 	//input for size of the array
+	
+	printf("\nEnter the size of the array (must be even)\n");
+	scanf("%d",&n);
+	
+	int a[n]; 	//declaration of the array
+	printf("\nEnter the elements of the array\n");
+	for(k=0;k<n;k++)
+		scanf("%d",&a[k]); 	//receiving array elements at run time
+		
+	int i,j; 	//loop variables
+	int cnt=1;
+	
+	for(i=0;i<n-1;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i] == a[j])
+			{
+				cnt++;
+			}
+		}
+		if(cnt == n/2)
+		{
+			printf("\n Element %d occurs %d times\n",a[i],(n/2));
+			return 1;
+		}
+		else
+			cnt = 1;
+	}
+	printf("\nNone\n");
+	return 0;
+}
+
