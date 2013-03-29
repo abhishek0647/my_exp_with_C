@@ -1,0 +1,40 @@
+//  
+//Find the smallest and second smallest element in an array
+//January 11, 2010
+
+
+//Question: Write an efficient C program to find smallest and second smallest element in an array.
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int n;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n];
+	printf("\nEnter the elements of the array\n");
+	int i;
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+		
+	int first,second;
+	first = second = a[0];
+	
+	for(i=0;i<n;i++)
+	{
+		if( a[i] < second)
+			second = a[i];
+		if(a[i] < first)
+		{
+			second = first;
+			first = a[i];
+		}
+	}
+	
+	printf("\nSmallest element = %d\n Second most smallest element = %d\n",first,second);
+	
+	return 0;
+}
