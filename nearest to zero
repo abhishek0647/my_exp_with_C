@@ -1,0 +1,42 @@
+//  
+//Two elements whose sum is closest to zero
+//January 10, 2010
+
+//Question: An Array of integers is given, both +ve and -ve. You need to find the two elements such that their sum is closest to zero.
+
+//For the below array, program should print -80 and 85.
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int n;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n], i,j;
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	
+	int sum, near_to_zero = 9999, num1, num2;
+	
+	for(i=0;i<n-1;i++)
+		for(j=i+1;j<n;j++)
+		{
+			sum = a[i] + a[j];
+			if(sum < 0)
+				sum *= -1;
+			if(sum < near_to_zero)
+			{
+				num1 = a[i];
+				num2 = a[j];
+				near_to_zero = sum;
+			}
+		}
+	
+	printf("\nElements constituting the nearest to zero sum are %d and %d\n",num1, num2);
+	
+	return 0;
+}
