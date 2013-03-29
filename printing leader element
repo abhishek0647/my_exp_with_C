@@ -1,0 +1,51 @@
+//	
+//Leaders in an array
+
+
+//Write a program to print all the LEADERS in the array.
+//An element is leader if it is greater than all the elements to its right side.
+//And the rightmost element is always a leader.
+//For example int the array {16, 17, 4, 3, 5, 2}, leaders are 17, 5 and 2.
+
+//Let the input array be arr[] and size of the array be size.
+//
+//
+//For this problen, I will scan all the elements from right to left in array and keep track of maximum till now. 
+// When maximum changes it’s value, print it.
+
+
+#include<stdio.h>
+#include<conio.h>
+
+/*Function to print leaders in an array */
+void printLeaders(int arr[], int size)
+{
+	int max_from_right =  arr[size-1];
+	int i;
+ 
+  	/* Rightmost element is always leader */
+  	printf("Leader Elements are %d\n", max_from_right);
+  	   
+  	for(i = size-2; i >= 0; i--)
+  	{
+		if(max_from_right < arr[i])
+    	{
+       		printf("%d\n", arr[i]);
+       		max_from_right = arr[i];
+    	}
+  	}   
+}
+ 
+/*Driver program to test above function*/
+int main()
+{
+	int n,i;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n];
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+  		scanf("%d",&a[i]);
+	printLeaders(a, n);
+  	getchar();   
+}    
