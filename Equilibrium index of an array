@@ -1,0 +1,59 @@
+//	
+//Equilibrium index of an array
+
+//Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes. For example, in an arrya A:
+
+//A[0] = -7, A[1] = 1, A[2] = 5, A[3] = 2, A[4] = -4, A[5] = 3, A[6]=0
+
+//3 is an equilibrium index, because:
+//A[0] + A[1] + A[2] = A[4] + A[5] + A[6]
+//
+
+#include<stdio.h>
+#include<conio.h>
+
+int equilibrium(int a[],int n)
+{
+	int sum_l,sum_r,i,j;
+	for(i=0;i<n;i++)
+	{
+		sum_l = 0;
+		sum_r = 0;
+		for(j=0;j<i;j++)
+			sum_l += a[j];
+		for(j= i+1; j<n;j++)
+			sum_r += a[j];
+			
+		if(sum_l == sum_r)
+			return i;
+		
+	}
+	return -1;
+}
+int main()
+{
+	int n,i;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n];
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+		
+	int equilibrium_point;
+	
+	equilibrium_point = equilibrium(a,n);
+	
+	if(equilibrium_point == -1)
+	{
+		printf("\nEquilibrium point does not exist\n");
+		return 0;	
+	}
+	else
+	{
+		printf("\nEquilibrium point is %d\n",equilibrium_point);
+		return 0;
+	}
+	
+	
+}
