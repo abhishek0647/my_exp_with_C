@@ -1,0 +1,57 @@
+//	
+//Find the minimum distance between two numbers
+//June 24, 2011
+
+//Given an unsorted array arr[] and two numbers x and y, find the minimum distance between x and y in arr[]. 
+//The array might also contain duplicates. 
+//You may assume that both x and y are different and present in arr[].
+//
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int n,i,j;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n];
+	
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	
+	int x,y,min_dist = 999;
+	int min;
+		
+	printf("\nEnter x\n");
+	scanf("%d",&x);
+	printf("\nEnter y\n");
+	scanf("%d",&y);
+	
+	for(i=0;i<n;i++)
+	{
+		if(a[i] == x )
+		{
+			for(j=0;j<n;j++)
+			{
+				if(a[j] == y )
+				{
+					min = abs(i-j);
+					if(min_dist > min)
+						min_dist = min;
+					
+				}
+			}
+		}
+	}
+	if(min_dist == 999)
+	{
+		printf("\nElements not found\n");
+		return 0;
+	}
+	printf("\nMinimum distance is %d\n",min_dist);
+	return 0;		
+}
