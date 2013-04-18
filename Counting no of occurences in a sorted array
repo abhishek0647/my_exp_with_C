@@ -1,0 +1,49 @@
+//	
+//Count the number of occurrences in a sorted array
+//May 3, 2011
+
+//Given a sorted array arr[] and a number x, write a function that counts the occurrences of x in arr[]. 
+//Expected time complexity is O(Logn) 
+//
+
+
+#include<stdio.h>
+#include<conio.h>
+
+int main()
+{
+	int n,i,j;
+	printf("\nEnter the size of the array\n");
+	scanf("%d",&n);
+	int a[n];
+	
+	printf("\nEnter the elements of the array\n");
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+
+	int x,count=0;
+	printf("\nEnter the value of x\n");
+	scanf("%d",&x);
+		
+	for(i=0;i<n;i++)
+	{
+		if(a[i] == x)
+		{
+			count = 1;
+			for(j=i+1;j<n;j++)
+			{
+				if(a[j] == x)
+					count++;
+				else
+					break;
+			}
+			break;
+		}
+	}
+	if(count == 0)
+		printf("\n Element %d is not found in the array\n",x);
+	else
+		printf("\nElement %d occurs %d no. of times in the given array\n",x,count);
+		
+	return 0;	
+}
